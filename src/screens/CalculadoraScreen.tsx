@@ -108,6 +108,10 @@ const armarNumero = (numeroTexto: string) =>{
         const num1 = Number(numero)
         const num2 = Number(numeroAnterior)
 
+        if (num1 === 0 && num2 === 0){
+            return setNumero('0')
+        }
+
         switch (ultimaOperacion.current) {
             case Operadores.sumar:
                 setNumero(`${num1 + num2}`)
@@ -121,9 +125,9 @@ const armarNumero = (numeroTexto: string) =>{
             case Operadores.dividir:
                 setNumero(`${num2 / num1}`)
                 break;
-            default:
-                break;
+           
         }
+ 
         setNumeroAnterior('0')
     }
 
