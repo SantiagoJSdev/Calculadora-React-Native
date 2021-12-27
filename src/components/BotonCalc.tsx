@@ -7,12 +7,15 @@ texto: string;
 //aqui coloco signo de interrogacion indicando q es opcional q se envie
 color?: string;
 ancho?: boolean;
+accion: (numeroTexto: string) => void;
 }
 
-export const BotonCalc = ({texto, color = '#2D2D2D', ancho= false}:props) => {
+export const BotonCalc = ({texto, color = '#2D2D2D', ancho= false, accion}:props) => {
     return (
 
-        <TouchableOpacity>
+        <TouchableOpacity
+        onPress={()=> accion(texto)}
+        >
             <View style={{
                 ...style.boton,
                 backgroundColor: color,
